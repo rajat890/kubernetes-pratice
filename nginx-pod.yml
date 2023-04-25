@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  namespace: dev
+  labels:
+    app: frontend-dev
+spec:
+  containers:
+  - name: nginx-container
+    image: 226479769484.dkr.ecr.ap-south-1.amazonaws.com/nginx-eks:latest
+    imagePullPolicy: IfNotPresent
+    ports:
+    - containerPort: 80
