@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: react-dev
+  template:
+    metadata:
+      labels:
+        app: react-dev
+    spec:
+      containers:
+      - name: react-container
+        image: 226479769484.dkr.ecr.ap-south-1.amazonaws.com/react-app:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000

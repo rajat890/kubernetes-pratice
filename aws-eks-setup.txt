@@ -1,0 +1,18 @@
+# Create the EKS cluster
+eksctl create cluster \
+--name eksdemo \
+--region ap-south-1 \
+--nodegroup-name eksdemo-workers \
+--node-type t2.small \
+--nodes 2 \
+--nodes-min 2 \
+--nodes-max 2 \
+--node-volume-size 10 \
+--node-volume-type gp2 \
+--managed #node groups are managed by the eks automatically 
+
+# Create an OIDC identity provider
+eksctl utils associate-iam-oidc-provider \
+--region ap-south-1 \
+--cluster eksdemo \
+--approve

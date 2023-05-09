@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: react-pod
+  labels:
+    app: react-dev
+spec:
+  containers:
+  - name: react-container
+    image: 226479769484.dkr.ecr.ap-south-1.amazonaws.com/react-app:latest
+    imagePullPolicy: IfNotPresent
+    ports:
+    - containerPort: 3000

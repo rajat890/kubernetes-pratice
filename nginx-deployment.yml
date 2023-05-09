@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend-dev
+  template:
+    metadata:
+      labels:
+        app: frontend-dev
+    spec:
+      containers:
+      - name: nginx-container
+        image: 226479769484.dkr.ecr.ap-south-1.amazonaws.com/nginx-eks:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
